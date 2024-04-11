@@ -8,7 +8,7 @@ MAIN		=	main.c
 
 INCLUDES	=	-I includes/
 
-SOURCES		=	mem_calloc environment_init put_philo
+SOURCES		=	mem_calloc environment_init put_philo environment_end
 SOURCES		:=	$(addprefix sources/, $(SOURCES))
 SOURCES		:=	$(addsuffix .c, $(SOURCES))
 

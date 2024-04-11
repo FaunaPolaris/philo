@@ -33,6 +33,7 @@ typedef struct s_environment
 
 void	*mem_calloc(int n, int size);
 void	environment_init(t_environment *env, char **argv);
+void	environment_end(t_environment *env);
 void	put_philo(t_environment env);
 
 #endif
