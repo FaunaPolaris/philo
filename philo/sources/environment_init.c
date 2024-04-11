@@ -30,6 +30,7 @@ void st_pull_chair(t_environment *env, t_round_table **chair,
 	(*chair) = (t_round_table *)mem_calloc(1, sizeof(t_round_table));
 	if (i == 0)
 		*env->table = *chair;
+	pthread_create(&(*chair)->philo.brain, NULL, philo_brain, (void *)env);
 	(*chair)->philo.id = i;
 	(*chair)->philo.left_hand = 0;
 	(*chair)->philo.right_hand = 0;

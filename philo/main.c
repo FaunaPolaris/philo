@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	printf("Time each philosopher needs to sleep for: 	%i\n\n",
 			env.s_par.time_to_sleep);
 	chair = *env.table;
-	environment_end(&env);
+//	environment_end(&env);
+	while (1)
+		;
 	return (TRUE);
 }

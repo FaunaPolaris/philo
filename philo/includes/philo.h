@@ -8,6 +8,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <unistd.h>
 
 typedef struct s_simulation_params
 {
@@ -19,10 +20,11 @@ typedef struct s_simulation_params
 
 typedef struct s_philosopher
 {
-	int	id;
-	int	left_hand;
-	int	right_hand;
-	int	alive;
+	pthread_t	brain;
+	int			id;
+	int			left_hand;
+	int			right_hand;
+	int			alive;
 }	t_philosopher;
 
 typedef struct s_round_table
@@ -42,6 +44,7 @@ typedef struct s_environment
 void	*mem_calloc(int n, int size);
 void	environment_init(t_environment *env, char **argv);
 void	environment_end(t_environment *env);
+void	*philo_brain(void *arg);
 void	put_philo(t_environment env);
 
 #endif
