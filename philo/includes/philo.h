@@ -17,9 +17,17 @@ typedef struct s_simulation_params
 	int	time_to_sleep;
 }	t_simulation_params;
 
+typedef struct s_philosopher
+{
+	int	id;
+	int	left_hand;
+	int	right_hand;
+	int	alive;
+}	t_philosopher;
+
 typedef struct s_round_table
 {
-	int						philo;
+	t_philosopher			philo;
 	int						fork;
 	struct s_round_table	*left;
 	struct s_round_table	*right;

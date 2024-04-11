@@ -33,36 +33,36 @@ void	put_philo(t_environment env)
 
 void	st_top_philo(t_round_table *philo)
 {
-	printf("\t\t\t                        ^\n");
-	printf("\t\t\t                     ( o O )\n");
-	printf("\t\t\t                    /       \\\n");
-	printf("\t\t\t                   (   ---   )\n");
-	printf("\t\t\t                    \\       /\n");
-	printf("\t\t\t                       |%i|\n", philo->philo);
-	printf("\t\t\t                   ----    ----\n");
+	printf("\t\t                        ^\n");
+	printf("\t\t                     ( o O )\n");
+	printf("\t\t                    /       \\\n");
+	printf("\t\t                   (   ---   )\n");
+	printf("\t\t                    \\       /\n");
+	printf("\t\t                       |%i|\n", philo->philo.id);
+	printf("\t\t                   ----    ----\n");
 }
 
 void	st_double_philo(t_round_table *left_philo, t_round_table *right_philo)
 {
-	printf("\t\t\t            |                        |\n");
-	printf("\t\t\t     ^      |                        |       ^\n");
-	printf("\t\t\t  (    O    |                        |     O    )\n");
-	printf("\t\t\t (      >   |                        |    <      )\n");
-	printf("\t\t\t  (   --    |                        |     --   )\n");
-	printf("\t\t\t    ||%i     |                        |      %i||\n", left_philo->philo,
-			right_philo->philo);
-	printf("\t\t\t   /  \\     |                        |      /  \\\n");
+	printf("\t\t            |                        |\n");
+	printf("\t\t     ^      |                        |       ^\n");
+	printf("\t\t  (    O    |                        |     O    )\n");
+	printf("\t\t (      >   |                        |    <      )\n");
+	printf("\t\t  (   --    |                        |     --   )\n");
+	printf("\t\t    ||%i     |                        |      %i||\n", left_philo->philo.id,
+			right_philo->philo.id);
+	printf("\t\t   /  \\     |                        |      /  \\\n");
 }
 
 void	st_table_top()
 {
-	printf("\t\t\t\t     *----------------------*\n");
-	printf("\t\t\t\t    /                        \\\n");
+	printf("\t\t\t     *----------------------*\n");
+	printf("\t\t\t    /                        \\\n");
 }
 
 void	st_table_bottom()
 {
-	printf("\t\t\t\t    \\                        /\n");
-	printf("\t\t\t\t     *----------------------*\n");
+	printf("\t\t\t    \\                        /\n");
+	printf("\t\t\t     *----------------------*\n");
 }
 
