@@ -35,7 +35,7 @@ void st_pull_chair(t_environment *env, t_round_table **chair,
 	(*chair)->philo.left_hand = 0;
 	(*chair)->philo.right_hand = 0;
 	(*chair)->philo.alive = 1;
-	(*chair)->fork = 1;
+	pthread_mutex_init(&(*chair)->fork, NULL);
 	(*chair)->left = *prev_chair;
 	if (*prev_chair)
 		(*prev_chair)->right = (*chair);

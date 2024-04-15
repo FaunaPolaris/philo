@@ -30,7 +30,7 @@ typedef struct s_philosopher
 typedef struct s_round_table
 {
 	t_philosopher			philo;
-	int						fork;
+	pthread_mutex_t			fork;
 	struct s_round_table	*left;
 	struct s_round_table	*right;
 }	t_round_table;
