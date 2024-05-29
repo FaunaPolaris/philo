@@ -16,6 +16,7 @@ typedef struct s_simulation_params
 	int	time_to_die;
 	int	time_to_eat;
 	int	time_to_sleep;
+	int	times_to_eat;
 }	t_simulation_params;
 
 typedef struct s_philosopher

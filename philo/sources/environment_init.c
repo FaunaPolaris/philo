@@ -22,6 +22,9 @@ void	environment_init(t_environment *env, char **argv)
 		st_pull_chair(env, &chair, &prev_chair, i);
 	chair->right = *env->table;
 	(*env->table)->left = chair;
+	i = -1;
+	while (++i < env->s_par.number_of_philo)
+		pthread_create(&chair->philo.brain, NULL, philo_brain, (void *)env);
 }
 
 void st_pull_chair(t_environment *env, t_round_table **chair,
@@ -30,12 +33,12 @@ void st_pull_chair(t_environment *env, t_round_table **chair,
 	(*chair) = (t_round_table *)mem_calloc(1, sizeof(t_round_table));
 	if (i == 0)
 		*env->table = *chair;
-	pthread_create(&(*chair)->philo.brain, NULL, philo_brain, (void *)env);
+	if (pthread_mutex_init(&(*chair)->fork, NULL) != 0)
+		printf("failed to init mutex\n");
 	(*chair)->philo.id = i;
 	(*chair)->philo.left_hand = 0;
 	(*chair)->philo.right_hand = 0;
 	(*chair)->philo.alive = 1;
-	pthread_mutex_init(&(*chair)->fork, NULL);
 	(*chair)->left = *prev_chair;
 	if (*prev_chair)
 		(*prev_chair)->right = (*chair);
