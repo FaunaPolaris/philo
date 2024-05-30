@@ -23,8 +23,7 @@ typedef struct s_philosopher
 {
 	pthread_t	brain;
 	int			id;
-	int			left_hand;
-	int			right_hand;
+	int			ate;
 	int			alive;
 }	t_philosopher;
 
@@ -43,9 +42,15 @@ typedef struct s_environment
 }	t_environment;
 
 void	*mem_calloc(int n, int size);
-void	environment_init(t_environment *env, char **argv);
+void	environment_init(t_environment *env, char **argv, int argc);
 void	environment_end(t_environment *env);
 void	*philo_brain(void *arg);
 void	put_philo(t_environment env);
+int		panopticon_tower(t_environment *env);
+
+void	lefthand_philo_pick_fork(t_round_table *chair);
+void	lefthand_philo_return_fork(t_round_table *chair);
+void	righthand_philo_pick_fork(t_round_table *chair);
+void	righthand_philo_return_fork(t_round_table *chair);
 
 #endif

@@ -1,10 +1,9 @@
 to do:
-	create a better interface with notes on the side;
 	Make each philo eat *amount of times or indefinitely;
 	Make so that the simulation always do the same thing (better sync);
 
-	Make each philo think if they can't eat;
-	Make each philo sleep when there's nothing else to do;
+	Make each philo sleep after eating;
+	Make each philo think when there's nothing else to do;
 
 	Make so that philos can die;
 	Make so that the simulation stops when a philo is dead;
