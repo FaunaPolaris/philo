@@ -48,9 +48,13 @@ void	*philo_brain(void *arg);
 void	put_philo(t_environment env);
 int		panopticon_tower(t_environment *env);
 
-void	lefthand_philo_pick_fork(t_round_table *chair);
-void	lefthand_philo_return_fork(t_round_table *chair);
-void	righthand_philo_pick_fork(t_round_table *chair);
-void	righthand_philo_return_fork(t_round_table *chair);
+void	lefthand_philo_pick_fork(t_round_table *chair,
+		pthread_mutex_t mouth);
+void	lefthand_philo_return_fork(t_round_table *chair,
+		pthread_mutex_t mouth);
+void	righthand_philo_pick_fork(t_round_table *chair,
+		pthread_mutex_t mouth);
+void	righthand_philo_return_fork(t_round_table *chair,
+		pthread_mutex_t mouth);
 
 #endif

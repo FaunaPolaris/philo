@@ -21,7 +21,6 @@ void	*philo_brain(void *arg)
 	pthread_mutex_unlock(&parietal_lobe);
 	while (1)
 		prefrontal_cortex(env, chair);
-	return (NULL);
 }
 
 static void	prefrontal_cortex(t_environment *env, t_round_table *chair)
@@ -30,18 +29,18 @@ static void	prefrontal_cortex(t_environment *env, t_round_table *chair)
 
 	pthread_mutex_init(&mouth, NULL);
 	if (chair->philo.id % 2 == 0)
-		lefthand_philo_pick_fork(chair);
+		lefthand_philo_pick_fork(chair, mouth);
 	else
-		righthand_philo_pick_fork(chair);
+		righthand_philo_pick_fork(chair, mouth);
 	usleep(env->s_par.time_to_eat * 1000);
 	pthread_mutex_lock(&mouth);
 	printf("philo %i has finished eating\n", chair->philo.id);
 	pthread_mutex_unlock(&mouth);
 	chair->philo.ate++;
 	if (chair->philo.id % 2 == 0)
-		lefthand_philo_return_fork(chair);
+		lefthand_philo_return_fork(chair, mouth);
 	else
-		righthand_philo_return_fork(chair);
+		righthand_philo_return_fork(chair, mouth);
 	usleep(env->s_par.time_to_sleep * 1000);
 	pthread_mutex_lock(&mouth);
 	printf("philo %i has finished sleeping\n", chair->philo.id);
