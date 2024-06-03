@@ -1,9 +1,13 @@
 to do:
-	Make each philo eat *amount of times or indefinitely;
-	Make so that the simulation always do the same thing (better sync);
+X	Make each philo eat *amount of times or indefinitely;
 
-	Make each philo sleep after eating;
-	Make each philo think when there's nothing else to do;
+X	Make the correct printing messages based on timestamp
+
+X	Make each philo sleep after eating;
+X	Make each philo think when there's nothing else to do;
 
 	Make so that philos can die;
-	Make so that the simulation stops when a philo is dead;
+X	Make so that the simulation stops when a philo is dead;
+
+	Make so that the simulation always do the same thing (better sync);
+	Make so that philos survive when they should have enough time

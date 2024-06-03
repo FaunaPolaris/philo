@@ -9,6 +9,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
+# include <sys/time.h>
 
 typedef struct s_simulation_params
 {
@@ -24,6 +25,7 @@ typedef struct s_philosopher
 	pthread_t	brain;
 	int			id;
 	int			ate;
+	long int	last_meal;
 	int			alive;
 }	t_philosopher;
 
@@ -39,6 +41,9 @@ typedef struct s_environment
 {
 	t_round_table		**table;
 	t_simulation_params	s_par;
+	pthread_mutex_t		mouth;
+	long int			start_time;
+	int					panopticon_start;
 }	t_environment;
 
 void	*mem_calloc(int n, int size);
@@ -46,15 +51,16 @@ void	environment_init(t_environment *env, char **argv, int argc);
 void	environment_end(t_environment *env);
 void	*philo_brain(void *arg);
 void	put_philo(t_environment env);
+void	say_state_change(char *new_state, int id, pthread_mutex_t *mouth);
 int		panopticon_tower(t_environment *env);
 
 void	lefthand_philo_pick_fork(t_round_table *chair,
-		pthread_mutex_t mouth);
+		pthread_mutex_t *mouth);
 void	lefthand_philo_return_fork(t_round_table *chair,
-		pthread_mutex_t mouth);
+		pthread_mutex_t *mouth);
 void	righthand_philo_pick_fork(t_round_table *chair,
-		pthread_mutex_t mouth);
+		pthread_mutex_t *mouth);
 void	righthand_philo_return_fork(t_round_table *chair,
-		pthread_mutex_t mouth);
+		pthread_mutex_t *mouth);
 
 #endif

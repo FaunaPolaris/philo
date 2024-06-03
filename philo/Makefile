@@ -9,6 +9,7 @@ MAIN		=	main.c
 INCLUDES	=	-I includes/
 
 SOURCES		=	mem_calloc environment_init put_philo environment_end philo_brain panopticon_tower pick_fork
+SOURCES		+=	say_state_change
 SOURCES		:=	$(addprefix sources/, $(SOURCES))
 SOURCES		:=	$(addsuffix .c, $(SOURCES))
 
